@@ -1,4 +1,4 @@
-package HashSet;
+package collections.sets;
 
 import org.jetbrains.annotations.NotNull;
 
