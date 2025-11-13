@@ -8,6 +8,7 @@ public class Intersection {
     public static void main(String[] args) {
 
         final List<Integer> listA = new ArrayList<>(List.of(1, 2, 2, 3, 4, 4, 5));
+
         final List<Integer> listB = new ArrayList<>(List.of(2, 2, 3, 5, 5, 6));
         Set<Integer> inter = intersectionUnique(new HashSet<>(listA), new HashSet<>(listB));
         List<Integer> interMult = intersectionMultiset(listA, listB);
