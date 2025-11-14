@@ -1,48 +1,49 @@
-package BST;
-
+package bst;
 public class Node {
 
-    public int peso;
-    public Node siguiente0, siguiente1;
-    public Node anterior;
-
+    public int weight;
+    public Node left, right;
+    public Node previous;
+    
     public Node(int peso) {
-        this.peso = peso;
-        this.siguiente1 = null;
-        this.siguiente0 = null;
-        this.anterior = null;
+        this.weight = peso;
+        this.right = null;
+        this.left = null;
+        this.previous = null;
     }
 
-    public void setSiguiente0(Node siguiente0) {
-        this.siguiente0 = siguiente0;
+    public int getWeight() {
+        return weight;
     }
 
-    public void setSiguiente1(Node siguiente1) {
-        this.siguiente1 = siguiente1;
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 
-    public void setAnterior(Node anterior) {
-        this.anterior = anterior;
+    public Node getLeft() {
+        return left;
     }
 
-    public void setPeso(int peso) {
-        this.peso = peso;
+    public void setLeft(Node left) {
+        this.left = left;
     }
 
-    public int getPeso() {
-        return peso;
+    public Node getRight() {
+        return right;
     }
 
-    public Node getSiguiente0() {
-        return siguiente0;
+    public void setRight(Node right) {
+        this.right = right;
     }
 
-    public Node getSiguiente1() {
-        return siguiente1;
+    public Node getPrevious() {
+        return previous;
     }
 
-    public Node getAnterior() {
-        return anterior;
+    public void setPrevious(Node previous) {
+        this.previous = previous;
     }
+
+    
 
 }
