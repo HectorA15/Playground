@@ -66,23 +66,43 @@ public class BinaryTree {
         }
 
         //aqui decidimos como vamos a eliminar el nodo
-        //caso 1: el padre tiene ambos hijos y el que va ocupara su lugar tambien tiene dos hijos
+        //caso 1: el nodo a eliminar es una hoja
         Node parent = currentNode.previous;
         if(currentNode.left == null && currentNode.right == null){
-            
             if(currentNode.weight > parent.weight){
-                parent.right = null;
+                parent.setRight(null);
+                break;
             }else if(currentNode.weight < parent.weight){
-                parent.left = null;
+                parent.setLeft(null);
+                break;
+        }
+        //caso 2: el nodo a eliminar tiene un solo hijo
+        if(currentNode.weight > parent.weight){
+            if(currentNode.left == null & currentNode.right != null){
+                parent.setRight(currentNode.right);
+                currentNode.setRight(null);
+                currentNode.setPrevious(null);       
+            }else if(currentNode.right == null & currentNode.left != null){
+                parent.setRight(currentNode.left);
+                parent.setLeft(null);
+                currentNode.setPrevious(null);
             }
-            
-            
-        }else if(currentNode.right == null){
-            
-        }else if(currentNode.left == null){
+        }else if(currentNode.weight < parent.weight){
+            if(currentNode.left == null & currentNode.right != null){
+                parent.setLeft(currentNode.right);
+                currentNode.setLeft(null);
+                currentNode.setPrevious(null);
+            }else if(currentNode.right == null & currentNode.left != null){
+                parent.setLeft(currentNode.left);
+                parent.setLeft(null);
+                currentNode.setPrevious(null);
+            }
+        }
+        
+        if(currentNode.right != null && curentNode.left != null){
             
         }
-        //caso 2: el padre tiene dos hijos, pero el hijo derecho no tiene hijo izquierdo
+        
         
     }
 
@@ -94,3 +114,4 @@ public class BinaryTree {
         }
     }
 }
+
