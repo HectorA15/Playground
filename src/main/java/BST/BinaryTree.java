@@ -41,69 +41,22 @@ public class BinaryTree {
     }
 
     public void delete(int peso) {
-        Node nodeToSearch = new Node(peso);
-        Node currentNode = root;
+        Node parent = null;
+        Node node = root;
 
-        //buscamos el nodo
-        while (currentNode != nodeToSearch) {
-            if (currentNode.weight < nodeToSearch.weight) {
-                if (currentNode.left == null) {
-                    currentNode.left = nodeToSearch;
-                    nodeToSearch.previous = currentNode;
-                } else {
-                    System.out.println("Node not found");
-                    break;
-                }
-            } else if (nodeToSearch.weight > currentNode.weight) {
-                if (currentNode.right == null) {
-                    currentNode.right = nodeToSearch;
-                    nodeToSearch.previous = currentNode;
-                } else {
-                    System.out.println("Node not found");
-                    break;
-                }
-            }
+        //search the node
+        while (node != null && node.weight != weight) {
+            parent = node;
+            if(node.weight < weight){node = node.left;}
+            else{node = node.right;}
         }
 
-        //aqui decidimos como vamos a eliminar el nodo
-        //caso 1: el nodo a eliminar es una hoja
-        Node parent = currentNode.previous;
-        if(currentNode.left == null && currentNode.right == null){
-            if(currentNode.weight > parent.weight){
-                parent.setRight(null);
-                break;
-            }else if(currentNode.weight < parent.weight){
-                parent.setLeft(null);
-                break;
-        }
-        //caso 2: el nodo a eliminar tiene un solo hijo
-        if(currentNode.weight > parent.weight){
-            if(currentNode.left == null & currentNode.right != null){
-                parent.setRight(currentNode.right);
-                currentNode.setRight(null);
-                currentNode.setPrevious(null);       
-            }else if(currentNode.right == null & currentNode.left != null){
-                parent.setRight(currentNode.left);
-                parent.setLeft(null);
-                currentNode.setPrevious(null);
-            }
-        }else if(currentNode.weight < parent.weight){
-            if(currentNode.left == null & currentNode.right != null){
-                parent.setLeft(currentNode.right);
-                currentNode.setLeft(null);
-                currentNode.setPrevious(null);
-            }else if(currentNode.right == null & currentNode.left != null){
-                parent.setLeft(currentNode.left);
-                parent.setLeft(null);
-                currentNode.setPrevious(null);
-            }
-        }
+
+        //case 1: parent have 2 childs
         
-        if(currentNode.right != null && curentNode.left != null){
-            
-        }
+        //case 2: parent only have 1 child
         
-        
+        //case 3: parent does not have childs
     }
 
     public void PreOrder(Node node) {
@@ -114,4 +67,5 @@ public class BinaryTree {
         }
     }
 }
+
 
